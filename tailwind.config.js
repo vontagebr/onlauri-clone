@@ -4,10 +4,13 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        octobre: 'octobre',
-        orbitron: 'orbitron',
-        billiondreams: 'BillionDreams',
-        oleoscript: 'OleoScript'
+        montserrat: 'montserrat'
+      },
+      backgroundImage: {
+        'search-icon':
+          'url(https://www.onlauri.com.br/skin/frontend/cammino/onlauri/images/search-icon.svg)',
+        chevron:
+          'url(https://www.onlauri.com.br/skin/frontend/cammino/onlauri/images/setinha-header.png)'
       }
     }
   },
