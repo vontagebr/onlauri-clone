@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: 'Octobre';
+    font-weight: 700;
+    src: url('./fonts/Octobre-Bold.otf') format('opentype');
+  }
+  @font-face {
+    font-family: 'Orbitron';
+    font-weight: 400;
+    src: url('./fonts/Orbitron-Regular.ttf') format('truetype');
+  }
+  @font-face {
+    font-family: 'Orbitron';
+    font-weight: 500;
+    src: url('./fonts/Orbitron-Medium.ttf') format('truetype');
+  }
+  @font-face {
+    font-family: 'Orbitron';
+    font-weight: 700;
+    src: url('./fonts/Orbitron-Bold.ttf') format('truetype');
+  }
+  @font-face {
+    font-family: 'Orbitron';
+    font-weight: 900;
+    src: url('./fonts/Orbitron-Black.ttf') format('truetype');
+  }
+  @font-face {
+    font-family: 'BillionDreams';
+    font-weight: 400;
+    src: url('./fonts/BillionDreams_PERSONAL.ttf') format('truetype');
+  }
+  @font-face {
+    font-family: 'OleoScript';
+    font-weight: 400;
+    src: url('./fonts/OleoScript-Regular.ttf') format('truetype');
+  }
+}
