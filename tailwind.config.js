@@ -7,10 +7,9 @@ module.exports = {
         montserrat: 'montserrat'
       },
       backgroundImage: {
-        'search-icon':
-          'url(https://www.onlauri.com.br/skin/frontend/cammino/onlauri/images/search-icon.svg)',
-        chevron:
-          'url(https://www.onlauri.com.br/skin/frontend/cammino/onlauri/images/setinha-header.png)'
+        'search-icon': 'url(/images/icons/search-icon.svg)',
+        'nav-prev': 'url(/images/icons/slick-navigation-prev.svg)',
+        'nav-next': 'url(/images/icons/slick-navigation-next.svg)'
       }
     }
   },
