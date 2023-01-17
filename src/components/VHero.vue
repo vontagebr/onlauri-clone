@@ -5,12 +5,6 @@
       :autoplay-speed="4500"
       :nav-buttons="false"
       ref="carousel">
-      <template v-slot:prevButton>
-        <button class="bg-red-100 absolute left-0">Prev</button>
-      </template>
-      <template v-slot:nextButton>
-        <button class="bg-green-100">Next</button>
-      </template>
       <div
         v-for="(slide, i) in slides"
         :key="i"
