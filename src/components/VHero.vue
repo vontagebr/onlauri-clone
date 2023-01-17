@@ -16,7 +16,7 @@
         :key="i"
         class="cursor-pointer"
         @click="onSlideClick(slide)">
-        <img :src="slide.imgUrl" />
+        <img :src="slide.imgUrl" class="w-full" />
       </div>
     </vue-agile>
     <button

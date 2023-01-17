@@ -1,5 +1,5 @@
 <template>
-  <section class="flex flex-col">
+  <section class="flex flex-col bg-white">
     <div class="w-full">
       <div
         class="flex justify-between items-center pt-[10px] max-w-[1200px] mx-auto">
