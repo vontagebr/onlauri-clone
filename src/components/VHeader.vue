@@ -2,21 +2,28 @@
   <section class="flex flex-col bg-white">
     <div class="w-full">
       <div
-        class="flex justify-between items-center pt-[10px] max-w-[1200px] mx-auto">
+        class="flex justify-between items-center space-x-4 pt-[10px] px-2 max-w-[1200px] mx-auto">
         <div class="w-[150px] cursor-pointer">
-          <img
-            src="https://www.onlauri.com.br/media/email/logo/default/LOGO-SITE-ONLAURI-PNG.png"
-            alt="Logo" />
+          <img src="/images/onlauri-logo.png" alt="Logo" />
         </div>
-        <div class="w-[480px] relative">
+        <div class="flex items-center space-x-5 desktop:hidden">
+          <button class="p-2 rounded-full">
+            <img src="/images/icons/cart.svg" :alt="'Carrinho'" />
+          </button>
+          <button class="p-2 rounded-full">
+            <img src="/images/icons/hamburger-menu.svg" :alt="'Menu'" />
+          </button>
+        </div>
+        <div
+          class="tablet:w-[250px] desktop:w-[480px] relative hidden tablet:block">
           <input
             class="box-search-input"
             placeholder="o que precisa de encontrar?" />
           <button
-            class="absolute right-[15px] top-1/2 transform -translate-y-1/2 h-[20px] w-[20px] bg-search-icon bg-center bg-no-repeat" />
+            class="absolute right-[15px] top-1/2 transform -translate-y-1/2 h-[20px] w-[22px] bg-search-icon bg-center bg-no-repeat" />
         </div>
-
-        <div class="header-links">
+        <div
+          class="flex-1 max-w-[400px] font-medium hidden desktop:flex justify-between">
           <div
             v-for="(headerLink, i) in headerLinks"
             :key="i"
@@ -30,8 +37,16 @@
           </div>
         </div>
       </div>
+      <!-- Mobile search input -->
+      <div class="shadow-xl z-50 tablet:hidden w-full relative border-b">
+        <input
+          class="shadow-inner h-[40px] w-full text-[13px] font-normal pl-2 focus:outline-none"
+          placeholder="o que precisa de encontrar?" />
+        <button
+          class="absolute right-[14px] top-1/2 transform -translate-y-1/2 h-[20px] w-[22px] bg-search-icon bg-center bg-no-repeat" />
+      </div>
     </div>
-    <div class="w-full border-b border-[#e0e0e0] pb-[5px]">
+    <div class="w-full border-b border-[#e0e0e0] pb-[5px] hidden desktop:block">
       <div class="flex justify-around h-[43px] max-w-[1200px] mx-auto">
         <div
           v-for="category in categories"
@@ -41,7 +56,7 @@
           <img
             v-if="category.highlight"
             class="w-[32px] absolute top-[12px] right-[-26px]"
-            src="https://www.onlauri.com.br/skin/frontend/cammino/onlauri/images/hot.gif" />
+            src="/images/hot.gif" />
         </div>
       </div>
     </div>
@@ -51,15 +66,15 @@
 <script lang="ts" setup>
 const headerLinks = [
   {
-    icon: 'https://www.onlauri.com.br/skin/frontend/cammino/onlauri/images/header-atendimento.svg',
+    icon: '/images/icons/atendimento.svg',
     label: 'Atendimento'
   },
   {
-    icon: 'https://www.onlauri.com.br/skin/frontend/cammino/onlauri/images/header-account.svg',
+    icon: '/images/icons/account.svg',
     label: 'Entrar'
   },
   {
-    icon: 'https://www.onlauri.com.br/skin/frontend/cammino/onlauri/images/header-cart-default.svg',
+    icon: '/images/icons/cart.svg',
     label: 'Carrinho'
   }
 ]

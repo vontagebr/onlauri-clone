@@ -10,8 +10,13 @@ module.exports = {
         'search-icon': 'url(/images/icons/search-icon.svg)',
         'nav-prev': 'url(/images/icons/slick-navigation-prev.svg)',
         'nav-next': 'url(/images/icons/slick-navigation-next.svg)'
+      },
+      screens: {
+        desktop: '980px',
+        tablet: '770px',
+        'mobile-xl': '600px'
       }
     }
   },
-  plugins: []
+  plugins: [require('@tailwindcss/line-clamp')]
 }

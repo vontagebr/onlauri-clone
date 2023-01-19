@@ -3,10 +3,13 @@
     <v-header class="sticky top-0 z-10" />
     <v-hero />
     <v-mini-banners />
-    <carousel-section :title="'Mais vistos'" />
-    <carousel-section :title="'Recomendamos para você'" />
-    <carousel-section :title="'Mais vendidos em Vestidos'" />
-    <carousel-section :title="'O que outros clientes estão vendo'" />
+    <div class="flex flex-col space-y-8 py-8">
+      <product-carousel :title="'Mais vistos'" />
+      <product-carousel :title="'Recomendamos para você'" />
+      <product-carousel :title="'Mais vendidos em Vestidos'" />
+      <product-carousel :title="'O que outros clientes estão vendo'" />
+      <product-grid :title="'Recomendado para você'" />
+    </div>
   </div>
 </template>
 
@@ -14,5 +17,6 @@
 import VHeader from '@/components/VHeader.vue'
 import VHero from '@/components/VHero.vue'
 import VMiniBanners from '@/components/VMiniBanners.vue'
-import CarouselSection from '@/components/CarouselSection.vue'
+import ProductCarousel from '@/components/ProductCarousel.vue'
+import ProductGrid from '@/components/ProductGrid.vue'
 </script>

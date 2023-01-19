@@ -1,14 +1,14 @@
 <template>
-  <section class="mt-[40px] mb-[45px] relative w-full max-w-[1200px] mx-auto">
+  <section class="relative w-full max-w-[1200px] mx-auto">
     <div class="text-center text-black text-[36px] font-extralight mb-[25px]">
       {{ title }}
     </div>
     <vue-agile
       :autoplay="false"
       :nav-buttons="false"
-      :slides-to-show="3"
+      :slides-to-show="cardsPerRow"
       ref="carousel"
-      class="mx-[50px]">
+      class="mx-[50px] py-4">
       <product-card
         v-for="(product, i) in products"
         :key="i"
@@ -26,19 +26,21 @@
 
 <script lang="ts" setup>
 import { VueAgile } from 'vue-agile'
-import { ref } from 'vue'
+import { ref, onMounted, onBeforeUnmount, computed, unref } from 'vue'
 import ProductCard from '@/components/ProductCard.vue'
 import type { IProduct } from '@/types'
 
 defineProps<{ title: string }>()
 
+const windowWidth = ref(0)
 const carousel = ref<null | InstanceType<typeof VueAgile>>(null)
 
 const products = ref<IProduct[]>([
   {
     label: 'Shorts Básico Cós Alto',
     images: ['img_2295_2.jpg'],
-    price: 49.9
+    price: 49.9,
+    discount: 0.32
   },
   {
     label: 'Calça Tela Aplicações Strass',
@@ -72,6 +74,18 @@ const products = ref<IProduct[]>([
   }
 ])
 
+const cardsPerRow = computed(() => (unref(windowWidth) > 600 ? 3 : 2))
+const onResize = () => {
+  windowWidth.value = window.innerWidth
+}
+
+onMounted(() => {
+  onResize()
+  window.addEventListener('resize', onResize)
+})
+onBeforeUnmount(() => {
+  window.removeEventListener('resize', onResize)
+})
 const onImageClick = (image: string) => {
   alert(`clicked ${image}`)
 }

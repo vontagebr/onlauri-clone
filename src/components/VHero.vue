@@ -15,10 +15,10 @@
     </vue-agile>
     <button
       @click="carousel?.goToPrev()"
-      class="w-[50px] h-[100px] absolute left-0 top-1/2 -translate-y-1/2 rounded-r-[7px] bg-white/70 hover:bg-white transition-colors bg-nav-prev bg-center bg-no-repeat" />
+      class="w-[20px] h-[30px] tablet:w-[30px] tablet:h-[60px] desktop:w-[50px] desktop:h-[100px] absolute left-0 top-1/2 -translate-y-1/2 rounded-r-[7px] bg-white/70 hover:bg-white transition-colors bg-nav-prev bg-center bg-no-repeat" />
     <button
       @click="carousel?.goToNext()"
-      class="w-[50px] h-[100px] absolute right-0 top-1/2 -translate-y-1/2 rounded-l-[7px] bg-white/70 hover:bg-white transition-colors bg-nav-next bg-center bg-no-repeat" />
+      class="w-[20px] h-[30px] tablet:w-[30px] tablet:h-[60px] desktop:w-[50px] desktop:h-[100px] absolute right-0 top-1/2 -translate-y-1/2 rounded-l-[7px] bg-white/70 hover:bg-white transition-colors bg-nav-next bg-center bg-no-repeat" />
   </section>
 </template>
 
