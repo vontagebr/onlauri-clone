@@ -8,7 +8,7 @@
       :nav-buttons="false"
       :slides-to-show="cardsPerRow"
       ref="carousel"
-      class="mx-[50px] py-4">
+      class="mx-[50px]">
       <product-card
         v-for="(product, i) in products"
         :key="i"

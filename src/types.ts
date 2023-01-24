@@ -4,3 +4,8 @@ export interface IProduct {
   price: number
   discount?: number
 }
+
+export interface IBanner {
+  key: string
+  imgUrl: string
+}
