@@ -9,7 +9,8 @@ module.exports = {
       backgroundImage: {
         'search-icon': 'url(/images/icons/search-icon.svg)',
         'nav-prev': 'url(/images/icons/slick-navigation-prev.svg)',
-        'nav-next': 'url(/images/icons/slick-navigation-next.svg)'
+        'nav-next': 'url(/images/icons/slick-navigation-next.svg)',
+        newsletter: 'url(/images/NEWSLETTER.jpg)'
       },
       screens: {
         desktop: '980px',

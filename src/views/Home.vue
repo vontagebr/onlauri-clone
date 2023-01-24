@@ -10,7 +10,9 @@
       <product-carousel :title="'O que outros clientes estão vendo'" />
       <product-grid :title="'Peças em destaque'" />
       <v-mini-banners :banners="bannersBottom" />
+      <newsletter-section />
     </div>
+    <v-footer />
   </div>
 </template>
 
@@ -21,6 +23,8 @@ import VHero from '@/components/VHero.vue'
 import VMiniBanners from '@/components/VMiniBanners.vue'
 import ProductCarousel from '@/components/ProductCarousel.vue'
 import ProductGrid from '@/components/ProductGrid.vue'
+import NewsletterSection from '@/components/NewsletterSection.vue'
+import VFooter from '@/components/VFooter.vue'
 import type { IBanner } from '@/types'
 
 const bannersTop = ref<IBanner[]>([
