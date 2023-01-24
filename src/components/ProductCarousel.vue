@@ -86,7 +86,4 @@ onMounted(() => {
 onBeforeUnmount(() => {
   window.removeEventListener('resize', onResize)
 })
-const onImageClick = (image: string) => {
-  alert(`clicked ${image}`)
-}
 </script>

@@ -8,7 +8,7 @@
       <product-carousel :title="'Recomendamos para você'" />
       <product-carousel :title="'Mais vendidos em Vestidos'" />
       <product-carousel :title="'O que outros clientes estão vendo'" />
-      <product-grid :title="'Recomendado para você'" />
+      <product-grid :title="'Peças em destaque'" />
     </div>
   </div>
 </template>

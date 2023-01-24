@@ -12,10 +12,9 @@
   "dependencies": {
     "@tailwindcss/line-clamp": "^0.4.2",
     "gsap": "^3.11.4",
-    "install": "^0.13.0",
-    "npm": "^9.3.0",
     "vue": "^3.2.45",
-    "vue-agile": "^2.0.0"
+    "vue-agile": "^2.0.0",
+    "vue-virtual-scroll-grid": "^1.10.1"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.1.4",
