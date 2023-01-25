@@ -1,31 +1,32 @@
 <template>
-  <div class="relative">
-    <v-header class="sticky top-0 z-10" />
-    <v-hero />
-    <div class="flex flex-col space-y-4">
-      <v-mini-banners :banners="bannersTop" :responsive="true" />
-      <product-carousel :title="'Mais vistos'" />
-      <product-carousel :title="'Recomendamos para você'" />
-      <product-carousel :title="'Mais vendidos em Vestidos'" />
-      <product-carousel :title="'O que outros clientes estão vendo'" />
-      <product-grid :title="'Peças em destaque'" />
-      <v-mini-banners :banners="bannersBottom" />
-      <newsletter-section />
-    </div>
-    <v-footer />
+  <v-hero />
+  <div class="flex flex-col space-y-4">
+    <v-mini-banners :banners="bannersTop" :responsive="true" />
+    <product-carousel :title="'Mais vistos'" :products="products" />
+    <product-carousel :title="'Recomendamos para você'" :products="products" />
+    <product-carousel
+      :title="'Mais vendidos em Vestidos'"
+      :products="products" />
+    <product-carousel
+      :title="'O que outros clientes estão vendo'"
+      :products="products" />
+    <product-grid :title="'Peças em destaque'" :products="products" />
+    <v-mini-banners :banners="bannersBottom" />
+    <newsletter-section />
   </div>
 </template>
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-import VHeader from '@/components/VHeader.vue'
 import VHero from '@/components/VHero.vue'
 import VMiniBanners from '@/components/VMiniBanners.vue'
 import ProductCarousel from '@/components/ProductCarousel.vue'
 import ProductGrid from '@/components/ProductGrid.vue'
 import NewsletterSection from '@/components/NewsletterSection.vue'
-import VFooter from '@/components/VFooter.vue'
 import type { IBanner } from '@/types'
+import { useStore } from '@/composables/useStore'
+
+const { products } = useStore()
 
 const bannersTop = ref<IBanner[]>([
   {

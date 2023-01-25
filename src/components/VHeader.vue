@@ -3,8 +3,10 @@
     <div class="w-full">
       <div
         class="flex justify-between items-center space-x-4 pt-[10px] px-2 max-w-[1200px] mx-auto">
-        <div class="w-[150px] cursor-pointer">
-          <img src="/images/onlauri-logo.png" alt="Logo" />
+        <div
+          class="w-[150px] cursor-pointer"
+          @click="$router.push({ name: 'home' })">
+          <img :src="logoUrl" alt="Logo" />
         </div>
         <div class="flex items-center space-x-5 desktop:hidden">
           <button class="p-2 rounded-full">
@@ -48,22 +50,27 @@
     </div>
     <div class="w-full border-b border-[#e0e0e0] pb-[5px] hidden desktop:block">
       <div class="flex justify-around h-[43px] max-w-[1200px] mx-auto">
-        <div
-          v-for="category in categories"
-          :key="category.key"
-          class="px-[6px] py-[13px] text-[11.8px] text-black font-semibold uppercase cursor-pointer relative">
-          {{ category.label }}
+        <router-link
+          v-for="section in productHeaderSections"
+          :key="section.id"
+          class="px-[6px] py-[13px] text-[11.8px] text-black font-semibold uppercase cursor-pointer relative"
+          :to="section.to ?? { name: 'section', params: { id: section.id } }">
+          {{ section.label }}
           <img
-            v-if="category.highlight"
+            v-if="section.highlight"
             class="w-[32px] absolute top-[12px] right-[-26px]"
             src="/images/hot.gif" />
-        </div>
+        </router-link>
       </div>
     </div>
   </section>
 </template>
 
 <script lang="ts" setup>
+import { useStore } from '@/composables/useStore'
+
+const { logoUrl, productHeaderSections } = useStore()
+
 const headerLinks = [
   {
     icon: '/images/icons/atendimento.svg',
@@ -79,18 +86,6 @@ const headerLinks = [
   }
 ]
 
-const categories = [
-  { key: 'home', label: 'Home' },
-  { key: 'summer2023', label: 'Verao 2023' },
-  { key: 'novidades', label: 'Novidades' },
-  { key: 'balada', label: 'Balada' },
-  { key: 'roupas', label: 'Roupas' },
-  { key: 'vestidosDeFesta', label: 'Vestidos de Festa' },
-  { key: 'beachwear', label: 'Beachwear' },
-  { key: 'acessorios', label: 'Acessorios' },
-  { key: 'noprecinho', label: 'No precinho' },
-  { key: 'outlet', label: 'Outlet', highlight: true }
-]
 </script>
 <style scoped>
 .box-search-input {

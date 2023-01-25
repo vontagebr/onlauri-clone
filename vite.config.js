@@ -14,6 +14,6 @@ export default defineConfig({
   optimizeDeps: {
     // required bye vue-slick
     include: ['lodash.orderby', 'lodash.throttle']
-  },
-  base: '/onlauri-clone/'
+  }
+  // base: '/onlauri-clone/'
 })
