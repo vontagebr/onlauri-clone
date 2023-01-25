@@ -3,7 +3,7 @@
     <v-header class="sticky top-0 z-10" />
     <v-hero />
     <div class="flex flex-col space-y-4">
-      <v-mini-banners :banners="bannersTop" />
+      <v-mini-banners :banners="bannersTop" :responsive="true" />
       <product-carousel :title="'Mais vistos'" />
       <product-carousel :title="'Recomendamos para você'" />
       <product-carousel :title="'Mais vendidos em Vestidos'" />
