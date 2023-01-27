@@ -10,7 +10,8 @@ module.exports = {
         'search-icon': 'url(/images/icons/search-icon.svg)',
         'nav-prev': 'url(/images/icons/slick-navigation-prev.svg)',
         'nav-next': 'url(/images/icons/slick-navigation-next.svg)',
-        newsletter: 'url(/images/NEWSLETTER.jpg)'
+        newsletter: 'url(/images/NEWSLETTER.jpg)',
+        home: 'url(/images/icons/home-breadcrumb.png)'
       },
       screens: {
         desktop: '980px',

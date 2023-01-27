@@ -12,7 +12,8 @@
       <product-card
         v-for="(product, i) in products"
         :key="i"
-        :product="product">
+        :product="product"
+        @click="$emit('click', product)">
       </product-card>
     </vue-agile>
     <button
@@ -31,6 +32,7 @@ import ProductCard from '@/components/ProductCard.vue'
 import type { IProduct } from '@/types'
 
 defineProps<{ title: string; products: IProduct[] }>()
+defineEmits<{ (eventName: 'click', product: IProduct): void }>()
 
 const windowWidth = ref(0)
 const carousel = ref<null | InstanceType<typeof VueAgile>>(null)

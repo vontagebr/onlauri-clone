@@ -22,7 +22,10 @@
       </template>
       <!-- Render a loaded item -->
       <template v-slot:default="{ item, style }">
-        <product-card :product="item" :style="style" />
+        <product-card
+          :product="item"
+          :style="style"
+          @click="$emit('click', item)" />
       </template>
     </virtual-scroll-grid>
   </section>
@@ -34,7 +37,7 @@ import VirtualScrollGrid from 'vue-virtual-scroll-grid'
 import ProductCard from '@/components/ProductCard.vue'
 
 defineProps<{ title?: string; products: IProduct[] }>()
-
+defineEmits<{ (eventName: 'click', product: IProduct): void }>()
 /*
 const pageProvider = async (pageNumber: number, pageSize: number) => {
   const page = await new Promise<IProduct[]>((resolve) =>

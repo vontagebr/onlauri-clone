@@ -49,15 +49,18 @@
       </div>
     </div>
     <div class="w-full border-b border-[#e0e0e0] pb-[5px] hidden desktop:block">
-      <div class="flex justify-around h-[43px] max-w-[1200px] mx-auto">
+      <div
+        class="flex justify-around items-center h-[43px] max-w-[1200px] mx-auto">
         <router-link
-          v-for="section in productHeaderSections"
-          :key="section.id"
-          class="px-[6px] py-[13px] text-[11.8px] text-black font-semibold uppercase cursor-pointer relative"
-          :to="section.to ?? { name: 'section', params: { id: section.id } }">
-          {{ section.label }}
+          v-for="catalog in headerCatalogs"
+          :key="catalog.id"
+          class="px-[6px] py-[13px] text-[11.8px] font-light hover:text-black transition-colors uppercase cursor-pointer relative"
+          :to="
+            catalog.to ?? { name: 'catalog', params: { catalogId: catalog.id } }
+          ">
+          {{ catalog.label }}
           <img
-            v-if="section.highlight"
+            v-if="catalog.highlight"
             class="w-[32px] absolute top-[12px] right-[-26px]"
             src="/images/hot.gif" />
         </router-link>
@@ -69,7 +72,7 @@
 <script lang="ts" setup>
 import { useStore } from '@/composables/useStore'
 
-const { logoUrl, productHeaderSections } = useStore()
+const { logoUrl, headerCatalogs } = useStore()
 
 const headerLinks = [
   {
@@ -85,7 +88,6 @@ const headerLinks = [
     label: 'Carrinho'
   }
 ]
-
 </script>
 <style scoped>
 .box-search-input {
@@ -106,5 +108,9 @@ const headerLinks = [
   @apply flex justify-between items-center space-x-2 text-[12px] relative;
   color: #796e7c;
   line-height: 17px;
+}
+
+.router-link-active {
+  @apply text-black font-medium;
 }
 </style>

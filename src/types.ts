@@ -1,7 +1,7 @@
 import type { RouteLocationRaw } from 'vue-router'
 export { RouteLocationRaw }
 
-export interface ISectionLink {
+export interface ICatalogLink {
   id: string
   label: string
   highlight?: boolean
@@ -9,6 +9,7 @@ export interface ISectionLink {
 }
 
 export interface IProduct {
+  id: string
   label: string
   images: string[]
   price: number

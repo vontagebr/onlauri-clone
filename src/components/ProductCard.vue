@@ -71,6 +71,7 @@
 <script lang="ts" setup>
 import { computed, toRefs, unref } from 'vue'
 import type { IProduct } from '@/types'
+// product = null stands for a loading card...
 const props = defineProps<{ product: IProduct | null }>()
 defineEmits<{ (eventName: 'click', product: IProduct): void }>()
 

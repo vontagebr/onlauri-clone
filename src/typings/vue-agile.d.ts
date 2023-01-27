@@ -1,5 +1,6 @@
+import 'vue-agile'
 declare module 'vue-agile' {
-  import Vue, {PluginObject} from 'vue'
+  import Vue, { PluginObject } from 'vue'
 
   const VueAgilePlugin: PluginObject<{}>
   export default VueAgilePlugin

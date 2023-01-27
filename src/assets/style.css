@@ -8,4 +8,7 @@
   body {
     @apply font-montserrat text-[14px] text-[#636363];
   }
+  .default-section-container {
+    @apply mx-auto max-w-[1200px] w-full
+  }
 }

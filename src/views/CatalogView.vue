@@ -1,9 +1,9 @@
 <template>
   <div class="px-[15px] flex-1 relative flex flex-col" ref="rootEl">
     <section
-      class="mx-auto max-w-[1200px] w-full mt-[30px] mb-[50px] flex justify-between items-center flex-wrap space-y-2"
+      class="store-container mt-[30px] mb-[50px] flex justify-between items-center flex-wrap space-y-2"
       ref="headerEl">
-      <div class="text-4xl font-medium">{{ section?.label }}</div>
+      <div class="text-4xl font-medium">{{ catalog?.label }}</div>
       <div class="flex shrink-0 justify-end items-center space-x-2">
         <div class="input-box">
           <span>Filtrar por</span>
@@ -25,7 +25,7 @@
       :style="`top: ${offsetTop}px; box-shadow: 0 15px 30px 0 rgba(0,0,0,.1);`">
       <section
         class="h-[70px] mx-auto max-w-[1200px] w-full flex items-center justify-between">
-        <div class="text-xl font-medium">{{ section?.label }}</div>
+        <div class="text-xl font-medium">{{ catalog?.label }}</div>
         <div class="flex shrink-0 justify-end items-center space-x-2">
           <div class="input-box">
             <span>Filtrar por</span>
@@ -43,7 +43,14 @@
       </section>
     </div>
 
-    <product-grid :products="section?.products ?? []" />
+    <product-grid
+      :products="catalog?.products ?? []"
+      @click="
+        $router.push({
+          name: 'catalogProduct',
+          params: { productId: $event.id }
+        })
+      " />
   </div>
 </template>
 
@@ -61,12 +68,12 @@ const headerOverflow = ref(false)
 const offsetTop = ref(0)
 
 const route = useRoute()
-const { getProductSection } = useStore()
+const { getCatalog } = useStore()
 
-const section = computed(() => {
-  const sectionId = route.params.id ?? null
-  if (typeof sectionId !== 'string') return null
-  const section = getProductSection(sectionId)
+const catalog = computed(() => {
+  const id = route.params.catalogId ?? null
+  if (typeof id !== 'string') return null
+  const section = getCatalog(id)
   return section
 })
 
@@ -80,7 +87,6 @@ const onResize = async () => {
     headerObserver = new IntersectionObserver(
       ([{ isIntersecting }]) => {
         headerOverflow.value = !isIntersecting
-        console.log(!isIntersecting)
       },
       {
         rootMargin: `-${unref(offsetTop)}px 0px 0px 0px`
