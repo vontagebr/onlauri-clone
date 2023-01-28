@@ -1,5 +1,5 @@
 <template>
-  <div class="px-[15px] flex-1 relative bg-red-300">
+  <div class="px-[15px] flex-1 relative">
     <section class="default-section-container py-[10px] px-[15px] bg-white">
       <div class="flex space-x-2">
         <vue-breadcrumbs />
@@ -12,8 +12,5 @@
 </template>
 
 <script lang="ts" setup>
-import { useRoute } from 'vue-router'
 import VueBreadcrumbs from '@/components/VueBreadcrumbs.vue'
-const route = useRoute()
-console.log(route.matched)
 </script>
