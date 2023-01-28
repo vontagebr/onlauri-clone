@@ -1,7 +1,7 @@
 <template>
   <div class="px-[15px] flex-1 relative flex flex-col" ref="rootEl">
     <section
-      class="store-container mt-[30px] mb-[50px] flex justify-between items-center flex-wrap space-y-2"
+      class="default-section-container mt-[30px] mb-[50px] flex justify-between items-center flex-wrap space-y-2"
       ref="headerEl">
       <div class="text-4xl font-medium">{{ catalog?.label }}</div>
       <div class="flex shrink-0 justify-end items-center space-x-2">
