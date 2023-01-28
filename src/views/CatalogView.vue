@@ -48,7 +48,7 @@
       @click="
         $router.push({
           name: 'catalogProduct',
-          params: { productId: $event.id, productName: $event.label }
+          params: { productId: $event.id }
         })
       " />
   </div>
@@ -68,12 +68,12 @@ const headerOverflow = ref(false)
 const offsetTop = ref(0)
 
 const route = useRoute()
-const { getCatalog } = useStore()
+const { getCatalogById } = useStore()
 
 const catalog = computed(() => {
   const id = route.params.catalogId ?? null
   if (typeof id !== 'string') return null
-  const section = getCatalog(id)
+  const section = getCatalogById(id)
   return section
 })
 

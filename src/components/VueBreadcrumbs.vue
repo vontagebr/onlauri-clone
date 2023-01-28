@@ -5,7 +5,7 @@
       :key="match.path"
       class="flex items-center group">
       <component
-        v-if="isVNode(match.meta?.breadcrumb?.(route))"
+        v-if="typeof match.meta?.breadcrumb === 'function'"
         :is="match.meta?.breadcrumb?.(route)" />
       <div class="group-last:hidden px-2 text-[10px] leading-[18px]">></div>
     </div>
@@ -13,7 +13,7 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, isVNode } from 'vue'
+import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 
 const route = useRoute()

@@ -64,11 +64,12 @@ const products = ref<IProduct[]>([
   }
 ])
 
-const getCatalog = (id: string) => {
-  const section =
-    unref(headerCatalogs).find(({ id: _id }) => _id === id) ?? null
-  if (section === null) throw new Error('could not find section')
-  return { ...section, products: unref(products) }
+const getProductById = async (productId: string) => unref(products).find(({ id }) => id === productId) ?? null
+
+const getCatalogById = (catalogId: string) => {
+  const catalog =
+    unref(headerCatalogs).find(({ id }) => id === catalogId) ?? null
+  return catalog === null ? null : { ...catalog, products: unref(products) }
 }
 
 const useStore = () => {
@@ -76,7 +77,8 @@ const useStore = () => {
     logoUrl: computed(() => unref(logoUrl)),
     headerCatalogs: computed(() => unref(headerCatalogs)),
     products: computed(() => unref(products)),
-    getCatalog
+    getCatalogById,
+    getProductById
   }
 }
 
