@@ -1,11 +1,8 @@
-import { h } from 'vue'
+import { defineAsyncComponent, h } from 'vue'
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '@/views/HomeView.vue'
 import DefaultLayout from '@/layouts/DefaultLayout.vue'
 import NotFoundView from '@/views/NotFoundView.vue'
-import { useStore } from '@/composables/useStore'
-
-const { getProductById } = useStore()
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -55,17 +52,15 @@ const router = createRouter({
               path: 'prd-:productId',
               name: 'catalogProduct',
               component: () => import('@/views/ProductView.vue'),
+              props: true,
               meta: {
+                // breadcrumb: (route) => h('div', {}, route.params.productName)
                 breadcrumb: (route) =>
                   h(
-                    'div',
-                    {
-                      class: 'cursor-pointer hover:underline',
-                      onClick: () => {
-                        router.push({ name: 'home' })
-                      }
-                    },
-                    route.params.productId
+                    defineAsyncComponent({
+                      loader: async () => () =>
+                        h('div', {}, route.params.productId)
+                    })
                   )
               }
             }

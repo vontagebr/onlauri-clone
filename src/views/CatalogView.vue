@@ -48,7 +48,7 @@
       @click="
         $router.push({
           name: 'catalogProduct',
-          params: { productId: $event.id }
+          params: { productId: $event.id, productName: $event.label }
         })
       " />
   </div>

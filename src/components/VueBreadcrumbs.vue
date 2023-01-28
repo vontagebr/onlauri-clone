@@ -7,11 +7,6 @@
       <component
         v-if="isVNode(match.meta?.breadcrumb?.(route))"
         :is="match.meta?.breadcrumb?.(route)" />
-      <span v-else>
-        {{
-          match.meta?.breadcrumb?.(route) ?? match.meta.breadcrumb ?? match.name
-        }}
-      </span>
       <div class="group-last:hidden px-2 text-[10px] leading-[18px]">></div>
     </div>
   </div>
