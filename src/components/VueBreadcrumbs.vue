@@ -7,7 +7,7 @@
       <component
         v-if="typeof match.meta?.breadcrumb === 'function'"
         :is="match.meta?.breadcrumb?.(route)" />
-      <div class="group-last:hidden px-2 text-[10px] leading-[18px]">></div>
+      <div class="group-last:hidden px-2">></div>
     </div>
   </div>
 </template>

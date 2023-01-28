@@ -18,7 +18,7 @@ const router = createRouter({
         breadcrumb: () =>
           h('div', {
             class:
-              'w-[14px] h-[14px] bg-home bg-center bg-cover bg-no-repeat cursor-pointer',
+              'w-[13px] h-[13px] bg-home bg-center bg-cover -mt-[2px] bg-no-repeat cursor-pointer',
             onClick: () => router.push({ name: 'home' })
           })
       },
@@ -45,7 +45,7 @@ const router = createRouter({
                     h(
                       'div',
                       {
-                        class: 'cursor-pointer text-blue-600 hover:underline',
+                        class: 'cursor-pointer text-blue-500 hover:underline',
                         onClick: () =>
                           router.push({
                             name: 'catalog',
