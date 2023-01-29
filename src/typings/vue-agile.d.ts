@@ -1,4 +1,3 @@
-import 'vue-agile'
 declare module 'vue-agile' {
   import Vue, { PluginObject } from 'vue'
 
