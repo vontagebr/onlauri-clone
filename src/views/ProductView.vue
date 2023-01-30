@@ -3,29 +3,21 @@
     <vue-breadcrumbs class="default-section-container" />
     <section class="default-section-container flex space-x-8">
       <!-- image box -->
-      <div
-        class="bg-red-300 flex justify-between w-[56%]"
-        :class="{
-          'space-x-4': theme === 'vertical'
-        }">
-        <div
-          class="bg-green-200 flex-1"
-          :class="{
-            'h-[581px]': theme === 'vertical'
-          }">
-          PREVIEW
+      <div class="flex w-[56.8%] space-x-[20px]">
+        <div class="h-[581px] w-[100px] flex flex-col space-y-3 overflow-auto">
+          <div
+            v-for="image in images"
+            :key="image.id"
+            class="cursor-pointer thumbnail"
+            @click="selectedImage = image">
+            <img :src="image.src" />
+          </div>
         </div>
-        <div
-          class="bg-blue-200 flex"
-          :class="{
-            'w-[calc(100%-100px)]': theme === 'vertical'
-          }">
-          <img
-            src="https://www.onlauri.com.br/media/catalog/product/cache/1/image/800x/17f82f742ffe127f42dca9de82fb58b1/i/m/img_2581_1.jpg"
-            :alt="'Blazer Alfaiataria Bolso c/ Botões Metálicos'"
-            :zoom-image="'https://www.onlauri.com.br/media/catalog/product/cache/1/image/1200x/17f82f742ffe127f42dca9de82fb58b1/i/m/img_2581_1.jpg'" />
+        <div class="w-[calc(100%-100px)] h-full">
+          <img :src="selectedImage.src" />
         </div>
       </div>
+
       <!-- detail box-->
       <div class="bg-white flex-1 flex flex-col divide-y [&>*]:py-6">
         <div class="flex flex-col space-y-6 !pt-0">
@@ -140,7 +132,7 @@
 </template>
 
 <script lang="ts" setup>
-import { withDefaults, ref } from 'vue'
+import { withDefaults, ref, unref } from 'vue'
 import VueBreadcrumbs from '@/components/VueBreadcrumbs.vue'
 
 withDefaults(
@@ -157,6 +149,38 @@ interface IProductColor {
   color: string
 }
 
+interface IImage {
+  id: string
+  alt: string
+  src: string
+  zoomSrc: string
+}
+// const carousel = ref<null | InstanceType<typeof VueAgile>>(null)
+const images = ref<IImage[]>([
+  {
+    id: 'image-0',
+    alt: 'Shorts Alfaiataria c/ Maxi Cinto',
+    src: 'https://www.onlauri.com.br/media/catalog/product/cache/1/image/800x/17f82f742ffe127f42dca9de82fb58b1/i/m/img_2770.jpg',
+    zoomSrc:
+      'https://www.onlauri.com.br/media/catalog/product/cache/1/image/1200x/17f82f742ffe127f42dca9de82fb58b1/i/m/img_2770.jpg'
+  },
+  {
+    id: 'image-1',
+    alt: 'Shorts Alfaiataria c/ Maxi Cinto',
+    src: 'https://www.onlauri.com.br/media/catalog/product/cache/1/image/800x/17f82f742ffe127f42dca9de82fb58b1/i/m/img_2773.jpg',
+    zoomSrc:
+      'https://www.onlauri.com.br/media/catalog/product/cache/1/image/1200x/17f82f742ffe127f42dca9de82fb58b1/i/m/img_2773.jpg'
+  },
+  {
+    id: 'image-2',
+    alt: 'Shorts Alfaiataria c/ Maxi Cinto',
+    src: 'https://www.onlauri.com.br/media/catalog/product/cache/1/image/800x/17f82f742ffe127f42dca9de82fb58b1/i/m/img_2769.jpg',
+    zoomSrc:
+      'https://www.onlauri.com.br/media/catalog/product/cache/1/image/1200x/17f82f742ffe127f42dca9de82fb58b1/i/m/img_2769.jpg'
+  }
+])
+
+const selectedImage = ref(unref(images)[0])
 const productSizes = ['P', 'M', 'G']
 const productColors = [
   { id: 1, label: 'Neon Verde', color: '#A9EF06' },
@@ -177,5 +201,9 @@ const selectedQuantity = ref(1)
 }
 .option-box[selected='true'] {
   @apply !shadow-none border-[#4a90e2];
+}
+
+.thumbnail {
+  @apply relative after:transition-colors after:absolute after:w-full after:h-[4px] after:content-[''] hover:after:bg-black;
 }
 </style>

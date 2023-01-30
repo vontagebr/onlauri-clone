@@ -25,12 +25,7 @@
 <script lang="ts" setup>
 import { VueAgile } from 'vue-agile'
 import { ref } from 'vue'
-
-export interface ISlide {
-  key: string
-  imgUrl: string
-}
-
+import type { ISlide } from '@/types'
 const carousel = ref<null | InstanceType<typeof VueAgile>>(null)
 
 const slides = ref<ISlide[]>([

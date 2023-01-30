@@ -1,6 +1,11 @@
 import type { RouteLocationRaw } from 'vue-router'
 export { RouteLocationRaw }
 
+export interface ISlide {
+  key: string
+  imgUrl: string
+}
+
 export interface ICatalogLink {
   id: string
   label: string
